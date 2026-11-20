@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09090e">
+  <link rel="icon" type="image/svg+xml" href="assets/mark.svg"><link rel="alternate icon" href="assets/mark.svg"><title>Muse AI Template Vault</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <canvas id="atmosphere" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <main class="shell"><nav class="site-nav"><a class="brand" href="index.html"><img src="assets/mark.svg" alt=""> <span>MUSE VAULT</span></a><div class="nav-links"><div class="nav-widget-group"><button class="invite-btn" id="openInvite" type="button" aria-haspopup="dialog" aria-controls="inviteModal"><span class="invite-icon"><img src="assets/mark.svg" alt=""><span class="invite-dot" aria-hidden="true"></span></span><span class="invite-label"><strong>FedPromptly</strong><small>Open source · AI tools</small></span><span class="invite-arrow" aria-hidden="true">›</span></button><button class="login-btn" id="loginBtn" type="button" title="Click to log in"><span class="login-avatar" id="loginAvatar"><img src="assets/mark.svg" alt=""></span><span id="loginBtnText">Login</span></button></div><a class="nav-login" href="join.html">Join / Sign in</a><a href="index.html">Vault</a><a href="community.html">Community</a><a href="support.html">Support</a><a class="nav-cta" href="payments.html">Support the project</a></div></nav><div class="ticker" aria-label="Looping template categories"><div>DOCUMENTS THAT HELP <b>✦</b> PAGES THAT POP <b>✦</b> APPS THAT REMEMBER <b>✦</b> IDEAS THAT MOVE <b>✦</b> DOCUMENTS THAT HELP <b>✦</b> PAGES THAT POP <b>✦</b> APPS THAT REMEMBER <b>✦</b> IDEAS THAT MOVE <b>✦</b></div></div>
+    <header class="hero">
+      <div class="eyebrow"><span class="pulse"></span> LOCAL TEMPLATE VAULT <span class="slash">/</span> 130 IDEAS</div>
+      <h1>Make something<br><em>useful.</em></h1>
+      <p class="lede">A focused library of documents, pages, and apps—ready to turn a real-world need into a clear prompt.</p>
+      <div class="controls">
+        <label class="search"><span>⌕</span><input id="search" type="search" placeholder="Search templates, people, features…" autocomplete="off"><kbd>/</kbd></label>
+        <div class="filters" role="tablist" aria-label="Template type filters">
+          <button class="filter active" data-filter="all">All <b>130</b></button>
+          <button class="filter" data-filter="DOCUMENT">Documents <b>10</b></button>
+          <button class="filter" data-filter="PAGE">Pages <b>10</b></button>
+          <button class="filter" data-filter="APP">Apps <b>10</b></button>
+          <button class="filter" data-filter="EXTRA">Extra prompts <b>100</b></button>
+        </div>
+      </div>
+    </header>
+    <section class="promo-grid"><a href="documents.html"><img src="assets/promo-documents.svg" alt="Comic documents promotion"><span>Open the document collection</span></a><a href="pages.html"><img src="assets/promo-pages.svg" alt="Comic pages promotion"><span>Open the page collection</span></a><a href="apps.html"><img src="assets/promo-apps.svg" alt="Comic apps promotion"><span>Open the app collection</span></a><a href="extra-prompts.html"><img src="assets/promo-extra.svg" alt="Comic extra prompts promotion"><span>Open the extra prompts</span></a></section><section class="motion-banner"><img src="assets/ink-loop.gif" alt="Animated ink ribbon loop"><div><span class="tag">NO ORBITS / JUST MOTION</span><h2>Ideas with a pulse.</h2><p>Local GIF, canvas effects, and comic panels included.</p></div></section><section class="status"><span id="result-count">130 ideas</span><span class="status-line"></span><span>Plain files. Yours to keep.</span></section>
+    <section id="cards" class="cards" aria-live="polite"></section>
+    <footer class="site-footer"><div class="footer-brand"><img src="assets/mark.svg" alt=""><div><strong>FED-OS</strong><span>Useful tools for unusual people.</span></div></div><div class="footer-columns"><div><span class="footer-label">EXPLORE</span><a href="https://www.fedpromptly.org" target="_blank" rel="noopener">Ecosystem</a><a href="https://www.fedpromptly.com/aid" target="_blank" rel="noopener">Join FED-OS</a><a href="https://www.jabburr.com/fed-os" target="_blank" rel="noopener">Storefront</a><a href="https://whop.com/fedpromptly/" target="_blank" rel="noopener">Whop</a></div><div><span class="footer-label">CONTACT</span><a href="mailto:contact@fedpromptly.com">General</a><a href="mailto:support@fedpromptly.com">Support</a><a href="mailto:business@fedpromptly.com">Business</a><a href="mailto:careers@fedpromptly.com">Careers</a></div><div><span class="footer-label">MEDIA</span><a href="https://substack.com/@fedpromptly" target="_blank" rel="noopener">Articles</a><a href="https://fedpromptly.wordpress.com/" target="_blank" rel="noopener">Blog</a><a href="https://gitfed.substack.com/" target="_blank" rel="noopener">GitFed Blog</a><a href="https://www.deviantart.com/fedpromptly" target="_blank" rel="noopener">Artwork</a></div><div><span class="footer-label">SOCIAL</span><div class="social-buttons"><a class="social-icon" aria-label="Developers Discord" href="https://discord.gg/Jm4XStx4Pf" target="_blank" rel="noopener">◈</a><a class="social-icon" aria-label="Bluesky" href="https://bsky.app/profile/fed-os.bsky.social" target="_blank" rel="noopener">✦</a><a class="social-icon" aria-label="X" href="https://x.com/Fedpromptly" target="_blank" rel="noopener">𝕏</a><a class="social-icon" aria-label="Patreon" href="https://www.patreon.com/c/FEDpromptly" target="_blank" rel="noopener">P</a><a class="social-icon" aria-label="Tips and donations" href="https://buymeacoffee.com/fedpromptly" target="_blank" rel="noopener">$</a></div><a class="private-link" href="private-communities.html">Private Communities <span>18+</span></a></div></div><div class="footer-bottom"><span>FED-OS / MUSE VAULT</span><span>PUBLIC LINKS ONLY · PREMIUM AND PRIVATE ARE GATED</span></div></footer>
+  </main>
+
+  <div class="login-modal" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <div class="login-card">
+      <button class="login-close" id="loginClose" type="button" aria-label="Close login">×</button>
+      <h2 id="loginModalTitle">Sign in</h2>
+      <p id="loginModalSub">Enter your credentials to continue</p>
+      <form id="loginForm" autocomplete="off">
+        <label for="loginEmail">Email address</label><input id="loginEmail" type="email" placeholder="you@example.com" required>
+        <label for="loginPassword">Password</label><input id="loginPassword" type="password" placeholder="••••••••" required minlength="6">
+        <div class="login-options"><a id="loginForgot" href="#">Forgot password?</a></div>
+        <button class="login-submit" id="authSubmitBtn" type="submit">Sign in</button>
+        <div id="authMessage" class="login-message" role="status"></div>
+        <div class="login-divider"><span>OR</span></div>
+        <div class="login-toggle"><span id="toggleText">New here?</span> <button id="toggleAuthMode" type="button">Sign up</button></div>
+      </form>
+    </div>
+  </div>
+
+  <dialog class="invite-modal" id="inviteModal" aria-label="FedPromptly community invite">
+    <div class="invite-panel">
+      <button class="invite-close" id="closeInvite" type="button" aria-label="Close community invite">×</button>
+      <div class="invite-banner"></div>
+      <div class="invite-server-icon"><img src="assets/mark.svg" alt="FedPromptly logo"><span class="invite-online" title="Online"></span></div>
+      <div class="invite-heading"><h2>FedPromptly</h2><p><strong>Open source</strong><i></i><span>AI tools</span><i></i><span>Publishing</span></p></div>
+      <div class="invite-body"><p>Building an open-source ecosystem for <strong>browser-native AI tools</strong> and <strong>cross-platform publishing</strong>.</p><div class="invite-pills"><span>Open source</span><span>Browser-native</span><span>AI tools</span><span>Cross-platform</span></div><div class="invite-contacts"><span>CONTACT</span><a href="mailto:contact@fedpromptly.com">contact@fedpromptly.com</a><a href="mailto:careers@fedpromptly.com">careers@fedpromptly.com</a></div><a class="invite-join" href="https://www.fedpromptly.com/social" target="_blank" rel="noopener">＋ Join the community</a></div>
+      <div class="invite-footer"><a href="https://www.fedpromptly.com" target="_blank" rel="noopener">www.fedpromptly.com</a><span>‹/› Open source</span></div>
+    </div>
+  </dialog>
+  <dialog id="detail">
+    <button class="close" aria-label="Close">×</button>
+    <div id="detail-content"></div>
+  </dialog>
+  <script src="app.js"></script><script src="auth-widget.js"></script><script src="invite-widget.js"></script><script src="site-effects.js"></script>
+</body>
+</html>
