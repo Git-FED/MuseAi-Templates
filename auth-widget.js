@@ -13,6 +13,7 @@
   const title = $('loginModalTitle'), sub = $('loginModalSub'), toggle = $('toggleAuthMode'), toggleText = $('toggleText');
   const avatar = $('loginAvatar'), buttonText = $('loginBtnText'), forgot = $('loginForgot');
   if (!button || !modal || !form) return;
+  const hostedRedirect = () => /^https?:$/.test(window.location.protocol) ? window.location.href : null;
   const showMessage = (text, type = 'error') => { message.textContent = text; message.className = `login-message ${type}`; };
   const hideMessage = () => { message.textContent = ''; message.className = 'login-message'; };
   const setMode = signUp => {
@@ -49,7 +50,7 @@
   forgot.addEventListener('click', async () => {
     const value = email.value.trim();
     if (!value) { showMessage('Enter your email address first.'); email.focus(); return; }
-    try { const { error } = await client.auth.resetPasswordForEmail(value, { redirectTo: window.location.href }); if (error) throw error; showMessage('Password reset email sent. Check your inbox.', 'info'); }
+    try { const redirect = hostedRedirect(); const options = redirect ? { redirectTo: redirect } : undefined; const { error } = await client.auth.resetPasswordForEmail(value, options); if (error) throw error; showMessage('Password reset email sent. Check your inbox.', 'info'); }
     catch (error) { showMessage(error.message || 'Unable to send the reset email.'); }
   });
   form.addEventListener('submit', async event => {
@@ -59,7 +60,7 @@
     submit.disabled = true; submit.textContent = isSignUp ? 'Creating…' : 'Signing in…'; hideMessage();
     try {
       let result;
-      if (isSignUp) result = await client.auth.signUp({ email: value, password: secret, options: { emailRedirectTo: window.location.href } });
+      if (isSignUp) { const redirect = hostedRedirect(); const options = redirect ? { emailRedirectTo: redirect } : undefined; result = await client.auth.signUp({ email: value, password: secret, ...(options ? { options } : {}) }); }
       else result = await client.auth.signInWithPassword({ email: value, password: secret });
       if (result.error) throw result.error;
       if (isSignUp && !result.data.session) showMessage('Check your email to confirm your account.', 'info');
